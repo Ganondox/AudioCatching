@@ -58,7 +58,9 @@ public class Mic
             int numBytesRead;
             byte[] data = new byte[4096];
 
-            addr = InetAddress.getByName("127.0.0.1");
+            addr = InetAddress.getByName("127.0.0.1 ");
+            //addr = InetAddress.getByName("192.168.26.18");
+            //addr = InetAddress.getByName(args[0]);
             DatagramSocket socket = new DatagramSocket();
             while (true) {
                 // Read the next chunk of data from the TargetDataLine.
@@ -78,5 +80,8 @@ public class Mic
         } catch (IOException e2) {
             // TODO: handle exception
         }
+
+        String string = "horse";
+
     }
 }

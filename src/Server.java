@@ -1,6 +1,7 @@
 import java.io.ByteArrayInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.util.Map;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -19,6 +20,8 @@ public class Server {
 
     static DataLine.Info dataLineInfo;
     static SourceDataLine sourceDataLine;
+
+
 
     public static void main(String args[]) throws Exception
     {
@@ -45,6 +48,7 @@ public class Server {
         //volumeControl.setValue(1.00f);
 
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+
 
         ByteArrayInputStream baiss = new ByteArrayInputStream(receivePacket.getData());
 
