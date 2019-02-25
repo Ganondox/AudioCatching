@@ -58,15 +58,30 @@ public class Mic
             int numBytesRead;
             byte[] data = new byte[4096];
 
-            addr = InetAddress.getByName("127.0.0.1 ");
+
+            //addr = InetAddress.getByName("127.0.0.1 ");
             //addr = InetAddress.getByName("192.168.26.18");
-            //addr = InetAddress.getByName(args[0]);
+
+            addr = InetAddress.getByName("127.0.0.1 ");
+
+            if(args.length > 0) {
+                //send to external server
+                addr = InetAddress.getByName(args[0]);
+            }
+
+            int port = 50005;
+            if(args.length > 1){
+                //send to router
+                port = Integer.parseInt(args[1]);
+            }
+
+
             DatagramSocket socket = new DatagramSocket();
             while (true) {
                 // Read the next chunk of data from the TargetDataLine.
                 numBytesRead =  line.read(data, 0, data.length);
                 // Save this chunk of data.
-                dgp = new DatagramPacket (data,data.length,addr,50005);
+                dgp = new DatagramPacket (data,data.length,addr, port);
 
                 socket.send(dgp);
         }

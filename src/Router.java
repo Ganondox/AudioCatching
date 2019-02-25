@@ -12,7 +12,7 @@ public class Router {
     static AudioInputStream ais;
     static AudioFormat format;
     static boolean status = true;
-    static int port = 50005;
+    static int port = 60006;
     static int sampleRate = 44100;
 
     static DataLine.Info dataLineInfo;
